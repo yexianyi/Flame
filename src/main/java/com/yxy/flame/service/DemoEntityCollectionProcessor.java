@@ -77,26 +77,26 @@ public class DemoEntityCollectionProcessor implements EntityCollectionProcessor 
     List<UriResource> resourcePaths = uriInfo.getUriResourceParts();
 
     
-//    for (UriResource uriPath : resourcePaths) {
-//        UriResourceEntitySet uriResourceEntitySet2 = (UriResourceEntitySet) uriPath;
-//        EdmEntitySet edmEntitySet2 = uriResourceEntitySet2.getEntitySet();
-//        System.out.println("entity--------------->" + edmEntitySet2.getName()) ;
-//        
-//        // xianyi: get requested entity param
-//        List<UriParameter> keyPredicates = uriResourceEntitySet2.getKeyPredicates();
-//        List<EdmNavigationPropertyBinding> bindings2 = edmEntitySet2.getNavigationPropertyBindings();
-//        if (!bindings2.isEmpty()) {
-//            for(EdmNavigationPropertyBinding binding : bindings2) {
-//                // can in our case only be 'Category' or 'Products', so we can take the first
-//                EdmElement property = edmEntitySet2.getEntityType().getProperty(binding.getPath());
-//                // we don't need to handle error cases, as it is done in the Olingo library
-//                if (property instanceof EdmNavigationProperty) {
-//                    EdmNavigationProperty edmNavigationProperty = (EdmNavigationProperty) property;
-//                    System.out.println("    nav property--------------->" + edmNavigationProperty.getName()) ;
-//                }
-//            }
-//        }
-//    }
+    for (UriResource uriPath : resourcePaths) {
+        UriResourceEntitySet uriResourceEntitySet2 = (UriResourceEntitySet) uriPath;
+        EdmEntitySet edmEntitySet2 = uriResourceEntitySet2.getEntitySet();
+        System.out.println("entity--------------->" + edmEntitySet2.getName()) ;
+        
+        // xianyi: get requested entity param
+        List<UriParameter> keyPredicates = uriResourceEntitySet2.getKeyPredicates();
+        List<EdmNavigationPropertyBinding> bindings2 = edmEntitySet2.getNavigationPropertyBindings();
+        if (!bindings2.isEmpty()) {
+            for(EdmNavigationPropertyBinding binding : bindings2) {
+                // can in our case only be 'Category' or 'Products', so we can take the first
+                EdmElement property = edmEntitySet2.getEntityType().getProperty(binding.getPath());
+                // we don't need to handle error cases, as it is done in the Olingo library
+                if (property instanceof EdmNavigationProperty) {
+                    EdmNavigationProperty edmNavigationProperty = (EdmNavigationProperty) property;
+                    System.out.println("    nav property--------------->" + edmNavigationProperty.getName()) ;
+                }
+            }
+        }
+    }
     
 //    UriResourceEntitySet uriResourceEntitySet = (UriResourceEntitySet) resourcePaths.get(0);
 //    EdmEntitySet edmEntitySet = uriResourceEntitySet.getEntitySet();
